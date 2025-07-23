@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IP Logger</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+  </style>
+</head>
+<body>
+  <h1>Halo 👋</h1>
+  <p>IP address kamu adalah:</p>
+  <h2 id="ip">Loading...</h2>
+
+  <script>
+    fetch('/get-ip')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('ip').textContent = data.ip;
+      })
+      .catch(() => {
+        document.getElementById('ip').textContent = 'Gagal ambil IP';
+      });
+  </script>
+</body>
+</html>
