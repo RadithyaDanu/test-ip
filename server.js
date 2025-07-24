@@ -32,13 +32,13 @@ app.get("/", async (req, res) => {
 
   try {
     await Visitor.create({ ip, userAgent });
-    console.log(`📥 Logged: ${ip} - ${userAgent}`);
+    console.log(`Logged: ${ip} - ${userAgent}`);
   } catch (err) {
-    console.error("❌ Failed to log visitor:", err);
+    console.error("Failed to log visitor:", err);
   }
 
   res.send(`
-    <h1>Halo 👋</h1>
+    <h1>Halo</h1>
     <p>IP address kamu adalah: <strong>${ip}</strong></p>
   `);
 });
@@ -76,5 +76,5 @@ app.get("/logs.csv", async (req, res) => {
 
 // === Start server ===
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
